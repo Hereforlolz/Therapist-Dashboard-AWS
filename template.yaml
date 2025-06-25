@@ -1,0 +1,82 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Therapist Dashboard Serverless App
+
+Resources:
+
+  PatientsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: patients
+      AttributeDefinitions:
+        - AttributeName: patient_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: patient_id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  GetDashboardFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: get_dashboard_deploy.get_dashboard.lambda_handler  # ✅ fixed
+      Runtime: python3.9
+      Timeout: 30
+      Policies:
+        - AmazonDynamoDBFullAccess
+        - AmazonBedrockFullAccess
+      Environment:
+        Variables:
+          PATIENTS_TABLE: patients
+          BEDROCK_MODEL_ID: anthropic.claude-3-sonnet-20240229-v1:0
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /dashboard
+            Method: GET
+
+  GenerateInsightFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: generate_insight_deploy.generate_insight.lambda_handler  # ✅ fixed
+      Runtime: python3.9
+      Timeout: 30
+      Policies:
+        - AmazonDynamoDBFullAccess
+        - AmazonBedrockFullAccess
+      Environment:
+        Variables:
+          PATIENTS_TABLE: patients
+          BEDROCK_MODEL_ID: anthropic.claude-3-sonnet-20240229-v1:0
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /insight
+            Method: POST
+
+  SaveSummaryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: save_summary_deploy.save_summary.lambda_handler  # ✅ fixed
+      Runtime: python3.9
+      Timeout: 30
+      Policies:
+        - AmazonDynamoDBFullAccess
+        - AmazonBedrockFullAccess
+      Environment:
+        Variables:
+          PATIENTS_TABLE: patients
+          BEDROCK_MODEL_ID: anthropic.claude-3-sonnet-20240229-v1:0
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /summary
+            Method: POST
+
+Outputs:
+  ApiUrl:
+    Description: "API Gateway endpoint"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
