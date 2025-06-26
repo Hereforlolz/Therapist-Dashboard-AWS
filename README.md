@@ -110,17 +110,16 @@ curl -X POST https://pkw8rjj2r8.execute-api.us-east-1.amazonaws.com/Prod/insight
 
 ---
 
-## 🚀 Deployment Guide
-Backend
+# 🚀 Deployment Guide
+## Backend
 
-# Set up DynamoDB
-aws dynamodb create-table --table-name patients ...
+Set up DynamoDB
+    aws dynamodb create-table --table-name patients ...
+ Deploy Lambda
+    zip dashboard-function.zip dashboard/
+    aws lambda create-function ...
 
-# Deploy Lambda
-zip dashboard-function.zip dashboard/
-aws lambda create-function ...
-
-Frontend (Render.com)
+## Frontend (Render.com)
 
     REACT_APP_API_BASE_URL=https://your-api-gateway-url/Prod
 
@@ -155,15 +154,16 @@ Frontend (Render.com)
 ## 🤝 Want to Contribute?
 
 This was build for the AWS Lambda hackathon as a prototype to help my therpaist pay more attention to me without getting burnout documenting.
-This was built fast and solo — so if you want to help out (or suggest features from a therapist’s perspective), I’m all ears.
+This was built fast and solo - so if you want to help out (or suggest features from a therapist’s perspective), I’m all ears.
 
+--- 
 git clone https://github.com/Hereforlolz/Therapist-Dashboard-AWS
 cd ui && npm install && npm start
 ---
 
 ## 📞 Contact & Support
 
-**Created by**: [Your Name]  
+**Created by**: Sreenidhi  
 **GitHub**: [Hereforlolz](https://github.com/Hereforlolz)  
 **Demo**: [Live Application](https://your-render-app.onrender.com)  
 **Video**: [3-Minute Demo](https://youtube.com/watch?v=your-video-id)
