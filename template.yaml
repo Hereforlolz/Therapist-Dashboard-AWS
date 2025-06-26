@@ -2,6 +2,13 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Therapist Dashboard Serverless App
 
+Globals:
+  Api:
+    Cors:
+      AllowMethods: "'OPTIONS,GET,POST'"
+      AllowHeaders: "'Content-Type,Authorization'"
+      AllowOrigin: "'*'"
+
 Resources:
 
   PatientsTable:
@@ -19,7 +26,7 @@ Resources:
   GetDashboardFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: get_dashboard_deploy.get_dashboard.lambda_handler  # ✅ fixed
+      Handler: get_dashboard_deploy.get_dashboard.lambda_handler
       Runtime: python3.9
       Timeout: 30
       Policies:
@@ -39,7 +46,7 @@ Resources:
   GenerateInsightFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: generate_insight_deploy.generate_insight.lambda_handler  # ✅ fixed
+      Handler: generate_insight_deploy.generate_insight.lambda_handler
       Runtime: python3.9
       Timeout: 30
       Policies:
@@ -59,7 +66,7 @@ Resources:
   SaveSummaryFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: save_summary_deploy.save_summary.lambda_handler  # ✅ fixed
+      Handler: save_summary_deploy.save_summary.lambda_handler
       Runtime: python3.9
       Timeout: 30
       Policies:

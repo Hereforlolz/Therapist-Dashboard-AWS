@@ -1,4 +1,4 @@
-## Therapist Dashboard AI — AWS Lambda Prototype
+## Therapist Dashboard AI- AWS Lambda Prototype
 
 A minimal AI-augmented therapist dashboard leveraging AWS Lambda, DynamoDB, and Bedrock Claude to automate session note summaries and generate gentle, actionable insights.
 

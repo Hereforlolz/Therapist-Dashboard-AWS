@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
+*.pyo
+*.pyd
 
 # Virtual environment folders
 .venv/
@@ -9,6 +12,12 @@ env/
 venv/
 ENV/
 .env
+
+#Node and React
+node_modules/
+build/
+.env
+.DS_Store
 
 # Distribution / packaging
 build/
@@ -55,6 +64,16 @@ htmlcov/
 # Misc
 *.swp
 *~
+
+# AWS SAM + Lambda
+*.zip
 .aws-sam/
 .sam/
 samconfig.toml
+
+# VS Code
+.vscode/
+
+# OS
+Thumbs.db
+
