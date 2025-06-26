@@ -27,7 +27,6 @@ dist/
 
 # AWS Lambda deployment packages (zipped folders)
 lambdas/
-*_deploy/
 *.zip
 
 # IDEs and editors
