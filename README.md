@@ -164,9 +164,9 @@ cd ui && npm install && npm start
 ## 📞 Contact & Support
 
 **Created by**: Sreenidhi  
-**GitHub**: [Hereforlolz](https://github.com/Hereforlolz)  
-**Demo**: [Live Application](https://your-render-app.onrender.com)  
-**Video**: [3-Minute Demo](https://youtube.com/watch?v=your-video-id)
+**GitHub**: [Hereforlolz](https://github.com/Hereforlolz/Therapist-Dashboard-AWS) 
+**Demo**: [Live Application]https://therapist-dashboard-aws.onrender.com/ 
+**Video**: [3-Minute Demo]https://youtu.be/ad21AexhQ8Y
 
 ---
 
