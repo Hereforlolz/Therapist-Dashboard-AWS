@@ -57,3 +57,7 @@ These are real gaps, listed so nobody mistakes this for a compliant system:
 - Least-privilege IAM, a proper compliance review, audit logging
 - A clinician review step for all AI-generated content
 - Evaluation of insight quality on synthetic cases
+
+## License
+
+[MIT](LICENSE). Code only; not a clinical product and provided without warranty.
